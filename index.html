@@ -20,6 +20,7 @@ HyBit A. ProtoBot (HAP) character and the apprentice learning methodology are pr
       <nav id="app-nav">
         <a href="#home" data-view="home">Home</a>
         <a href="#breeds" data-view="breeds">Breeds</a>
+        <a href="#explorer" data-view="explorer">Response Explorer</a>
       </nav>
     </div>
   </header>
@@ -40,6 +41,12 @@ HyBit A. ProtoBot (HAP) character and the apprentice learning methodology are pr
           <p>Fetch breeds from the Dog API and render the first five.</p>
           <a href="#breeds" data-view="breeds">Try it &rarr;</a>
         </div>
+
+        <div class="card">
+          <h3>Response Explorer</h3>
+          <p>See the full JSON:API response structure with annotations.</p>
+          <a href="#explorer" data-view="explorer">Try it &rarr;</a>
+        </div>
       </div>
     </section>
 
@@ -51,6 +58,27 @@ HyBit A. ProtoBot (HAP) character and the apprentice learning methodology are pr
       <p>Fetching the first 5 breeds from the Dog API...</p>
       <div id="breed-list" class="card-grid mt-1">
         <p class="loading">Loading breeds...</p>
+      </div>
+    </section>
+
+    <!-- Response Explorer view (Station 2) -->
+    <!-- This view has two display areas:
+         1. #raw-response shows the full JSON with syntax highlighting and annotations
+         2. #extracted-data shows just the breed info pulled from the nested structure
+         The button triggers a fresh fetch so students can see the request happen. -->
+    <section id="view-explorer" class="view" hidden>
+      <h2>JSON:API Response Structure</h2>
+      <p>The Dog API uses JSON:API format. Fetch a live response and see how the data is organized.</p>
+
+      <button id="fetch-btn" class="btn mt-1">Fetch Breeds</button>
+
+      <h3 class="mt-2">Raw Response</h3>
+      <div id="raw-response" class="json-display" role="region" aria-label="Raw JSON response">Click "Fetch Breeds" to see the response...</div>
+
+      <h3 class="mt-2">Extracted Breed Data</h3>
+      <p>After navigating <code>response.data[].attributes</code>, here is what we actually need:</p>
+      <div id="extracted-data" class="card-grid mt-1">
+        <p class="loading">Waiting for fetch...</p>
       </div>
     </section>
 

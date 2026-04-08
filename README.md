@@ -17,6 +17,7 @@ Opens at `http://localhost:3000`.
 ## What it does so far
 
 - **Breeds** — fetch and render the first 5 dog breeds from the Dog API
+- **Response Explorer** — show the full JSON:API response with annotated structure
 
 More views are added as HAP learns new fetch concepts.
 
