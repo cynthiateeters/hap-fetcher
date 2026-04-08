@@ -62,6 +62,14 @@ Uses the [Dog API](https://dogapi.dog) (kinduff) — free, no key required, JSON
 | ------------------ | ------------------------------------------------------- | --------------------------- |
 | `DOG_API_BASE_URL` | Base URL for the Dog API (used by serverless functions) | `https://dogapi.dog/api/v2` |
 
+## Deploy your own
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/cynthiateeters/hap-fetcher)
+
+## API attribution
+
+This app uses the [Dog API](https://dogapi.dog) by [kinduff](https://buymeacoffee.com/kinduff). Free, no key required, beautifully structured. Buy them a coffee if you find it useful.
+
 ## License
 
 HAP Educational Content copyright 2026 Cynthia Teeters. All rights reserved.
