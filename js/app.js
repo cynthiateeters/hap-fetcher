@@ -7,7 +7,9 @@
 import { initBreeds } from "./breeds.js";
 import { initExplorer } from "./response.js";
 import { initDetail } from "./detail.js";
-import { initFacts } from "./facts.js";
+/* Station 4 had: import { initFacts } from "./facts.js";
+ * Station 5 replaced the facts proxy with a breeds proxy.
+ * The detail view now fetches through the proxy instead of directly. */
 
 /*
  * --- View registry ---
@@ -40,11 +42,6 @@ const views = {
   detail: {
     element: document.querySelector("#view-detail"),
     init: initDetail,
-    loaded: false,
-  },
-  facts: {
-    element: document.querySelector("#view-facts"),
-    init: initFacts,
     loaded: false,
   },
 };
@@ -160,6 +157,21 @@ document.addEventListener("click", (event) => {
     location.hash = viewName;
   }
 });
+
+/*
+ * --- Grand Reveal ---
+ * The reveal button shows HAP and Fetcher together.
+ * Once revealed, the button hides so it can't be clicked again.
+ */
+const revealButton = document.querySelector("#reveal-btn");
+const revealContent = document.querySelector("#reveal-content");
+
+if (revealButton && revealContent) {
+  revealButton.addEventListener("click", () => {
+    revealContent.hidden = false;
+    revealButton.hidden = true;
+  });
+}
 
 /* Show the correct view on initial page load */
 handleRoute();

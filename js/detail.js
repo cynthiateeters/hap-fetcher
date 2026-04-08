@@ -1,5 +1,5 @@
 /*
- * detail.js — Station 3: Breed Detail + Caching
+ * detail.js — Station 3/5: Breed Detail + Caching
  *
  * HAP keeps looking up the same breeds over and over. Grace tells HAP
  * that re-fetching data you already have is wasteful — and shows how
@@ -10,9 +10,18 @@
  * and self-heals on failure (deletes bad data, falls back to a fresh fetch).
  *
  * This same wrapper pattern gets reused later for conversation history.
+ *
+ * Station 5 update: Fetches now go through our serverless proxy at
+ * /.netlify/functions/dog-breeds instead of directly to the Dog API.
+ * The proxy converts weight from kg to lbs (the shelter uses pounds).
  */
 
-const API_URL = "https://dogapi.dog/api/v2/breeds";
+/*
+ * Breed data now comes through our serverless proxy.
+ * The proxy handles the Dog API call on the server and converts
+ * weight from kg to lbs before sending the response to the browser.
+ */
+const BREEDS_PROXY_URL = "/.netlify/functions/dog-breeds";
 
 /*
  * Cache key prefix — all cached breeds use this prefix + the breed ID.
@@ -110,7 +119,7 @@ async function loadAllBreeds() {
      * The API's meta.pagination.next is null on the last page.
      */
     while (true) {
-      const response = await fetch(`${API_URL}?page[number]=${page}&page[size]=20`);
+      const response = await fetch(`${BREEDS_PROXY_URL}?page=${page}&size=20`);
 
       if (!response.ok) {
         throw new Error(`API responded with status ${response.status}`);
@@ -128,7 +137,11 @@ async function loadAllBreeds() {
         allBreeds.push({
           id: breed.id,
           name: breed.attributes.name,
-          averageWeight: (breed.attributes.male_weight.min + breed.attributes.male_weight.max) / 2,
+          /* Round to 1 decimal to avoid floating point noise (e.g., 12.100000000000001) */
+          averageWeight:
+            Math.round(
+              ((breed.attributes.male_weight.min + breed.attributes.male_weight.max) / 2) * 10,
+            ) / 10,
         });
       }
 
@@ -198,7 +211,7 @@ function filterBreeds(query) {
 
       const weightSpan = document.createElement("span");
       weightSpan.className = "breed-results-weight";
-      weightSpan.textContent = `~${breed.averageWeight} kg`;
+      weightSpan.textContent = `~${breed.averageWeight} lbs`;
 
       listItem.append(nameSpan, weightSpan);
 
@@ -275,7 +288,7 @@ async function fetchBreedDetail(breedId) {
      * The response has the same JSON:API structure but with a single
      * object in data instead of an array.
      */
-    const response = await fetch(`${API_URL}/${breedId}`);
+    const response = await fetch(`${BREEDS_PROXY_URL}?id=${breedId}`);
 
     if (!response.ok) {
       throw new Error(`API responded with status ${response.status}`);
@@ -332,11 +345,11 @@ function renderBreedDetail(breedData, container) {
   meta.appendChild(lifespanSpan);
 
   const maleWeightSpan = document.createElement("span");
-  maleWeightSpan.textContent = `Male weight: ${male_weight.min}\u2013${male_weight.max} kg`;
+  maleWeightSpan.textContent = `Male weight: ${male_weight.min}\u2013${male_weight.max} lbs`;
   meta.appendChild(maleWeightSpan);
 
   const femaleWeightSpan = document.createElement("span");
-  femaleWeightSpan.textContent = `Female weight: ${female_weight.min}\u2013${female_weight.max} kg`;
+  femaleWeightSpan.textContent = `Female weight: ${female_weight.min}\u2013${female_weight.max} lbs`;
   meta.appendChild(femaleWeightSpan);
 
   if (hypoallergenic) {

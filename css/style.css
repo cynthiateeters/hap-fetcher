@@ -346,6 +346,31 @@ footer {
   text-align: center;
 }
 
+/* Reveal */
+
+.reveal-container {
+  margin-top: 2rem;
+}
+
+.reveal-figure {
+  margin: 1.5rem auto 0;
+  text-align: center;
+}
+
+.reveal-figure img {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  border-radius: 5%;
+}
+
+.reveal-figure figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.95em;
+  color: var(--hap-text-muted);
+  font-style: italic;
+}
+
 /* Spacing utilities */
 
 .mt-1 {

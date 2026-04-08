@@ -22,7 +22,6 @@ HyBit A. ProtoBot (HAP) character and the apprentice learning methodology are pr
         <a href="#breeds" data-view="breeds">Breeds</a>
         <a href="#explorer" data-view="explorer">Response Explorer</a>
         <a href="#detail" data-view="detail">Breed Detail</a>
-        <a href="#facts" data-view="facts">Dog Facts</a>
       </nav>
     </div>
   </header>
@@ -56,10 +55,23 @@ HyBit A. ProtoBot (HAP) character and the apprentice learning methodology are pr
           <a href="#detail" data-view="detail">Try it &rarr;</a>
         </div>
 
-        <div class="card">
-          <h3>Dog Facts</h3>
-          <p>Get random dog facts through a serverless proxy.</p>
-          <a href="#facts" data-view="facts">Try it &rarr;</a>
+      </div>
+
+      <!-- The Grand Reveal — hidden until the button is clicked.
+           HAP researched breeds across 5 stations and finally found Fetcher. -->
+      <div class="reveal-container mt-2">
+        <button id="reveal-btn" type="button" class="btn">The Grand Reveal 🟠</button>
+        <div id="reveal-content" hidden>
+          <h3 class="mt-2">Meet Fetcher!</h3>
+          <p>I took my robot phone to the shelter and learned that Fetcher, being a Shih Tzu and Bichon Frise mix, was my perfect pal. All that breed research — fetching, exploring responses, caching lookups, converting weights from kg to lbs — led me right here. I named this little one Fetcher, because I had to learn the developer way to fetch before I found my new best friend. 🟠</p>
+          <figure class="reveal-figure mt-1">
+            <img
+              src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_480,c_limit/canvas/hap/hap-fetcher-smiles"
+              alt="HAP robot waving beside Fetcher the dog, both smiling happily"
+              loading="lazy"
+            />
+            <figcaption>HAP and Fetcher, ready for all of our adventures!</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -84,7 +96,7 @@ HyBit A. ProtoBot (HAP) character and the apprentice learning methodology are pr
       <h2>JSON:API Response Structure</h2>
       <p>The Dog API uses JSON:API format. Fetch a live response and see how the data is organized.</p>
 
-      <button id="fetch-btn" class="btn mt-1">Fetch Breeds</button>
+      <button id="fetch-btn" type="button" class="btn mt-1">Fetch Breeds</button>
 
       <h3 class="mt-2">Raw Response</h3>
       <div id="raw-response" class="json-display" role="region" aria-label="Raw JSON response">Click "Fetch Breeds" to see the response...</div>
@@ -120,28 +132,16 @@ HyBit A. ProtoBot (HAP) character and the apprentice learning methodology are pr
         <p class="loading">Search for a breed above...</p>
       </div>
 
-      <button id="clear-cache" class="btn btn-secondary mt-2">
+      <button id="clear-cache" type="button" class="btn btn-secondary mt-2">
         Clear Cache
       </button>
     </section>
 
-    <!-- Dog Facts view (Station 4) -->
-    <!-- This view fetches from our own serverless function, not directly from the Dog API.
-         The browser calls /.netlify/functions/dog-facts, which runs on the server
-         and forwards the request to the Dog API. The browser never sees the external API URL.
-         This requires `netlify dev` for local development (not `npx serve`). -->
-    <section id="view-facts" class="view" hidden>
-      <h2>Dog Facts</h2>
-      <p>Random dog facts fetched through a serverless proxy — the API call happens on the server, not in your browser.</p>
-
-      <button id="facts-btn" class="btn mt-1">Get a Fact</button>
-
-      <div id="facts-list" class="mt-1">
-        <p class="loading">Click the button to fetch a fact...</p>
-      </div>
-    </section>
-
-    <!-- More views will be added in later stations -->
+    <!-- Station 4 had a Dog Facts view here that fetched through a simple proxy.
+         Station 5 replaced that proxy with a breeds proxy that converts kg to lbs.
+         The Breed Detail view now fetches through the breeds proxy instead of
+         calling the Dog API directly. The facts view is preserved in the
+         station-4 branch snapshot. -->
   </main>
 
   <footer>
