@@ -1,0 +1,73 @@
+<!--
+HAP Educational Content © 2026 Cynthia Teeters. All rights reserved.
+HyBit A. ProtoBot (HAP) character and the apprentice learning methodology are proprietary educational innovations.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAP's Fetcher App — Dog Breed Research</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1><span>🟠</span> HAP's Fetcher App</h1>
+      <p>HAP's dog breed research tool — built one fetch at a time</p>
+      <!-- Navigation links use data-view attributes that the JS router reads.
+           The href="#breeds" also updates the URL hash for bookmarking and back-button support. -->
+      <nav id="app-nav">
+        <a href="#home" data-view="home">Home</a>
+        <a href="#breeds" data-view="breeds">Breeds</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Each view is a <section> with a unique id.
+         The router in app.js shows one and hides the rest using the hidden attribute.
+         This is a simple SPA (single-page application) pattern — no page reloads needed. -->
+
+    <!-- Home view -->
+    <section id="view-home" class="view">
+      <h2>Welcome</h2>
+      <p>Each view demonstrates a fetch concept HAP learned while researching dog breeds.</p>
+
+      <div class="card-grid mt-1">
+        <div class="card">
+          <h3>Breed List</h3>
+          <p>Fetch breeds from the Dog API and render the first five.</p>
+          <a href="#breeds" data-view="breeds">Try it &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Breeds view (Station 1) -->
+    <!-- The id="breed-list" div is the target where breeds.js renders fetched data.
+         It starts with a loading message that gets replaced once the fetch completes. -->
+    <section id="view-breeds" class="view" hidden>
+      <h2>Dog Breeds</h2>
+      <p>Fetching the first 5 breeds from the Dog API...</p>
+      <div id="breed-list" class="card-grid mt-1">
+        <p class="loading">Loading breeds...</p>
+      </div>
+    </section>
+
+    <!-- More views will be added in later stations -->
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>HAP's Fetcher App &mdash; a companion to
+        <a href="https://hap-fetch.netlify.app" target="_blank" rel="noopener noreferrer">HAP's Fetch Learning Lab</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- type="module" enables ES module syntax (import/export).
+       This is the modern way to load JavaScript — no bundler needed.
+       The browser handles the module loading automatically. -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

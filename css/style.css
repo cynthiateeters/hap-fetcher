@@ -1,0 +1,358 @@
+/* HAP Fetcher — Demo App Styles */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --hap-orange: hsl(28, 90%, 55%);
+  --hap-orange-light: hsl(28, 90%, 95%);
+  --hap-teal: hsl(174, 60%, 40%);
+  --hap-teal-light: hsl(174, 60%, 95%);
+  --hap-brown: hsl(30, 30%, 35%);
+  --hap-brown-light: hsl(30, 30%, 95%);
+  --hap-bg: hsl(30, 20%, 98%);
+  --hap-text: hsl(30, 10%, 20%);
+  --hap-text-muted: hsl(30, 10%, 45%);
+  --hap-border: hsl(30, 15%, 85%);
+  --hap-card-bg: hsl(0, 0%, 100%);
+  --hap-shadow: 0 2px 8px hsl(0, 0%, 0%, 0.08);
+  --hap-radius: 8px;
+  --hap-max-width: 52rem;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: var(--hap-bg);
+  color: var(--hap-text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Layout */
+
+.container {
+  max-width: var(--hap-max-width);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+header {
+  background-color: var(--hap-card-bg);
+  border-bottom: 3px solid var(--hap-orange);
+  padding: 1.5rem 0;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  color: var(--hap-brown);
+}
+
+header h1 span {
+  color: var(--hap-orange);
+}
+
+header p {
+  color: var(--hap-text-muted);
+  font-size: 0.95rem;
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+
+nav a {
+  color: var(--hap-teal);
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-right: 1rem;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  text-decoration: underline;
+}
+
+nav a.active {
+  color: var(--hap-orange);
+  font-weight: 600;
+}
+
+main {
+  padding-bottom: 3rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+  color: var(--hap-brown);
+  margin-bottom: 1rem;
+}
+
+/* Cards */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background-color: var(--hap-card-bg);
+  border: 1px solid var(--hap-border);
+  border-radius: var(--hap-radius);
+  padding: 1.25rem;
+  box-shadow: var(--hap-shadow);
+}
+
+.card h3 {
+  font-size: 1.05rem;
+  color: var(--hap-brown);
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: var(--hap-text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.card a {
+  color: var(--hap-teal);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.card a:hover,
+.card a:focus-visible {
+  text-decoration: underline;
+}
+
+/* Breed cards */
+
+.breed-card {
+  border-left: 4px solid var(--hap-orange);
+}
+
+.breed-card .breed-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--hap-brown);
+}
+
+.breed-card .breed-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--hap-text-muted);
+}
+
+.breed-card .badge {
+  display: inline-block;
+  background-color: var(--hap-teal-light);
+  color: var(--hap-teal);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.15em 0.5em;
+  border-radius: 4px;
+}
+
+/* Response explorer */
+
+.json-display {
+  background-color: hsl(220, 15%, 15%);
+  color: hsl(220, 15%, 85%);
+  border-radius: var(--hap-radius);
+  padding: 1.25rem;
+  overflow-x: auto;
+  font-family: "Source Code Pro", ui-monospace, monospace;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  white-space: pre;
+  margin-bottom: 1.5rem;
+}
+
+.json-key {
+  color: hsl(200, 80%, 70%);
+}
+
+.json-string {
+  color: hsl(100, 60%, 65%);
+}
+
+.json-number {
+  color: hsl(30, 90%, 70%);
+}
+
+.json-boolean {
+  color: hsl(280, 70%, 75%);
+}
+
+.json-annotation {
+  color: hsl(0, 0%, 50%);
+  font-style: italic;
+}
+
+/* Detail page */
+
+.detail-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 640px) {
+  .detail-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.breed-search {
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid var(--hap-border);
+  border-radius: var(--hap-radius);
+  background-color: var(--hap-card-bg);
+  color: var(--hap-text);
+  width: 100%;
+  max-width: 24rem;
+  margin-bottom: 0;
+}
+
+.breed-search:disabled {
+  opacity: 0.6;
+}
+
+.breed-results {
+  list-style: none;
+  max-width: 24rem;
+  max-height: 15rem;
+  overflow-y: auto;
+  border: 1px solid var(--hap-border);
+  border-top: none;
+  border-radius: 0 0 var(--hap-radius) var(--hap-radius);
+  background-color: var(--hap-card-bg);
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+.breed-results li {
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.breed-results li:hover,
+.breed-results li:focus-visible,
+.breed-results li[aria-selected="true"] {
+  background-color: var(--hap-orange-light);
+  color: var(--hap-brown);
+}
+
+.breed-results li .breed-results-weight {
+  font-size: 0.8rem;
+  color: var(--hap-text-muted);
+  margin-left: 0.5rem;
+}
+
+.cache-status {
+  font-size: 0.85rem;
+  color: var(--hap-text-muted);
+  padding: 0.5rem 0.75rem;
+  background-color: var(--hap-brown-light);
+  border-radius: var(--hap-radius);
+  margin-bottom: 1rem;
+}
+
+.cache-status.from-cache {
+  background-color: var(--hap-teal-light);
+  color: var(--hap-teal);
+}
+
+/* Facts */
+
+.fact-card {
+  border-left: 4px solid var(--hap-teal);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* Buttons */
+
+.btn {
+  display: inline-block;
+  background-color: var(--hap-orange);
+  color: hsl(0, 0%, 100%);
+  border: none;
+  border-radius: var(--hap-radius);
+  padding: 0.6rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  background-color: hsl(28, 90%, 48%);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Loading / error states */
+
+.loading {
+  color: var(--hap-text-muted);
+  font-style: italic;
+  padding: 1rem 0;
+}
+
+.error {
+  color: hsl(0, 70%, 50%);
+  background-color: hsl(0, 70%, 96%);
+  border: 1px solid hsl(0, 70%, 85%);
+  border-radius: var(--hap-radius);
+  padding: 1rem;
+}
+
+/* Footer */
+
+footer {
+  margin-top: 3rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--hap-border);
+  color: var(--hap-text-muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* Spacing utilities */
+
+.mt-1 {
+  margin-top: 1.25rem;
+}
+
+/* Visually hidden (accessible) */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
