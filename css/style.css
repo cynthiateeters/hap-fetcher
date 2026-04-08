@@ -9,7 +9,7 @@
 }
 
 :root {
-  --hap-orange: hsl(28, 90%, 42%);
+  --hap-orange: hsl(28, 90%, 38%);
   --hap-orange-light: hsl(28, 90%, 95%);
   --hap-teal: hsl(174, 80%, 28%);
   --hap-teal-light: hsl(174, 60%, 95%);
@@ -79,8 +79,9 @@ nav a:focus-visible {
 }
 
 nav a.active {
-  color: var(--hap-orange);
+  color: var(--hap-brown);
   font-weight: 600;
+  text-decoration: underline;
 }
 
 main {
@@ -302,7 +303,7 @@ h2 {
 
 .btn:hover,
 .btn:focus-visible {
-  background-color: hsl(28, 90%, 36%);
+  background-color: hsl(28, 90%, 32%);
 }
 
 .btn-secondary {
