@@ -18,6 +18,7 @@ Opens at `http://localhost:3000`.
 
 - **Breeds** — fetch and render the first 5 dog breeds from the Dog API
 - **Response Explorer** — show the full JSON:API response with annotated structure
+- **Breed Detail** — search all 283 breeds, look up details with localStorage caching
 
 More views are added as HAP learns new fetch concepts.
 
@@ -26,6 +27,7 @@ More views are added as HAP learns new fetch concepts.
 Uses the [Dog API](https://dogapi.dog) (kinduff) — free, no key required, JSON:API format.
 
 - `GET /api/v2/breeds` — paginated breed list
+- `GET /api/v2/breeds/:id` — single breed detail
 
 ## License
 

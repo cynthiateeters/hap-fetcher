@@ -6,6 +6,7 @@
 
 import { initBreeds } from "./breeds.js";
 import { initExplorer } from "./response.js";
+import { initDetail } from "./detail.js";
 
 /*
  * --- View registry ---
@@ -33,6 +34,11 @@ const views = {
   explorer: {
     element: document.querySelector("#view-explorer"),
     init: initExplorer,
+    loaded: false,
+  },
+  detail: {
+    element: document.querySelector("#view-detail"),
+    init: initDetail,
     loaded: false,
   },
 };

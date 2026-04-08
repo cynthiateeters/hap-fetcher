@@ -305,6 +305,15 @@ h2 {
   background-color: hsl(28, 90%, 48%);
 }
 
+.btn-secondary {
+  background-color: var(--hap-brown);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  background-color: hsl(30, 30%, 28%);
+}
+
 .btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
