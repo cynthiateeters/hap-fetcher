@@ -7,6 +7,7 @@
 import { initBreeds } from "./breeds.js";
 import { initExplorer } from "./response.js";
 import { initDetail } from "./detail.js";
+import { initFacts } from "./facts.js";
 
 /*
  * --- View registry ---
@@ -39,6 +40,11 @@ const views = {
   detail: {
     element: document.querySelector("#view-detail"),
     init: initDetail,
+    loaded: false,
+  },
+  facts: {
+    element: document.querySelector("#view-facts"),
+    init: initFacts,
     loaded: false,
   },
 };

@@ -1,0 +1,13 @@
+# Netlify configuration
+# See https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  # The site is static HTML — no build step needed.
+  # publish tells Netlify which folder to serve as the site root.
+  publish = "."
+
+[functions]
+  # Serverless functions live in this directory.
+  # Netlify automatically detects and deploys them.
+  # Each .mjs file becomes an endpoint at /.netlify/functions/<filename>
+  directory = "netlify/functions"

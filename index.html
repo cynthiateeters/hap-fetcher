@@ -22,6 +22,7 @@ HyBit A. ProtoBot (HAP) character and the apprentice learning methodology are pr
         <a href="#breeds" data-view="breeds">Breeds</a>
         <a href="#explorer" data-view="explorer">Response Explorer</a>
         <a href="#detail" data-view="detail">Breed Detail</a>
+        <a href="#facts" data-view="facts">Dog Facts</a>
       </nav>
     </div>
   </header>
@@ -53,6 +54,12 @@ HyBit A. ProtoBot (HAP) character and the apprentice learning methodology are pr
           <h3>Breed Detail</h3>
           <p>Look up a single breed with localStorage caching.</p>
           <a href="#detail" data-view="detail">Try it &rarr;</a>
+        </div>
+
+        <div class="card">
+          <h3>Dog Facts</h3>
+          <p>Get random dog facts through a serverless proxy.</p>
+          <a href="#facts" data-view="facts">Try it &rarr;</a>
         </div>
       </div>
     </section>
@@ -116,6 +123,22 @@ HyBit A. ProtoBot (HAP) character and the apprentice learning methodology are pr
       <button id="clear-cache" class="btn btn-secondary mt-2">
         Clear Cache
       </button>
+    </section>
+
+    <!-- Dog Facts view (Station 4) -->
+    <!-- This view fetches from our own serverless function, not directly from the Dog API.
+         The browser calls /.netlify/functions/dog-facts, which runs on the server
+         and forwards the request to the Dog API. The browser never sees the external API URL.
+         This requires `netlify dev` for local development (not `npx serve`). -->
+    <section id="view-facts" class="view" hidden>
+      <h2>Dog Facts</h2>
+      <p>Random dog facts fetched through a serverless proxy — the API call happens on the server, not in your browser.</p>
+
+      <button id="facts-btn" class="btn mt-1">Get a Fact</button>
+
+      <div id="facts-list" class="mt-1">
+        <p class="loading">Click the button to fetch a fact...</p>
+      </div>
     </section>
 
     <!-- More views will be added in later stations -->
