@@ -9,15 +9,15 @@
 }
 
 :root {
-  --hap-orange: hsl(28, 90%, 55%);
+  --hap-orange: hsl(28, 90%, 42%);
   --hap-orange-light: hsl(28, 90%, 95%);
-  --hap-teal: hsl(174, 60%, 40%);
+  --hap-teal: hsl(174, 80%, 28%);
   --hap-teal-light: hsl(174, 60%, 95%);
-  --hap-brown: hsl(30, 30%, 35%);
+  --hap-brown: hsl(30, 30%, 30%);
   --hap-brown-light: hsl(30, 30%, 95%);
   --hap-bg: hsl(30, 20%, 98%);
   --hap-text: hsl(30, 10%, 20%);
-  --hap-text-muted: hsl(30, 10%, 45%);
+  --hap-text-muted: hsl(30, 10%, 38%);
   --hap-border: hsl(30, 15%, 85%);
   --hap-card-bg: hsl(0, 0%, 100%);
   --hap-shadow: 0 2px 8px hsl(0, 0%, 0%, 0.08);
@@ -302,7 +302,7 @@ h2 {
 
 .btn:hover,
 .btn:focus-visible {
-  background-color: hsl(28, 90%, 48%);
+  background-color: hsl(28, 90%, 36%);
 }
 
 .btn-secondary {
@@ -311,7 +311,7 @@ h2 {
 
 .btn-secondary:hover,
 .btn-secondary:focus-visible {
-  background-color: hsl(30, 30%, 28%);
+  background-color: hsl(30, 30%, 24%);
 }
 
 .btn:disabled {
