@@ -1,5 +1,7 @@
 # HAP's Fetcher App
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c4c62cc2-946a-4a97-a96f-5c667ad581f6/deploy-status)](https://app.netlify.com/projects/hap-fetcher/deploys)
+
 A single-page demo app for [HAP's Fetch Learning Lab](https://hap-fetch.netlify.app). Built with vanilla HTML, CSS, and JavaScript — no frameworks, no build step.
 
 Named after Fetcher, HAP's 12-pound fluffy companion.
@@ -72,4 +74,7 @@ This app uses the [Dog API](https://dogapi.dog) by [kinduff](https://buymeacoffe
 
 ## License
 
-HAP Educational Content copyright 2026 Cynthia Teeters. All rights reserved.
+- **Code:** MIT License (Cynthia Teeters)
+- **HAP character and educational content:** All rights reserved (Cynthia Teeters)
+
+See [LICENSE](LICENSE) for details.
